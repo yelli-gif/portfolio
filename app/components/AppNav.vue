@@ -1,33 +1,58 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const route = useRoute()
+const isMenuOpen = ref(false)
 
 const links = [
   { name: 'Accueil',      path: '/' },
   { name: 'À propos',     path: '/about' },
   { name: 'Projets',      path: '/projects' },
-  { name: 'Compétences',  path: '/skills' },
+  { name: 'Contact',      path: '/contact' },
 ]
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50 px-16 py-5 flex justify-between items-center"
-    style="background:rgba(250,248,245,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(230,226,238,.5)">
-
-    <NuxtLink to="/" class="font-['Playfair_Display',serif] text-xl font-semibold text-[#1C1828]">
-      dev<span class="text-[#7C5CBF] italic">.</span>
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-4 flex justify-between items-center bg-white/70 backdrop-blur-md border-b border-gray-200">
+    <NuxtLink to="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-full bg-slate-400 text-white flex items-center justify-center font-bold text-lg transition-transform group-hover:scale-105">
+        M
+      </div>
+      <span class="font-medium text-slate-700 text-lg tracking-wide hidden sm:block">MIAGE</span>
     </NuxtLink>
 
-    <div class="flex items-center gap-2">
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-2">
       <NuxtLink v-for="link in links" :key="link.path" :to="link.path"
-        class="text-xs text-[#9B96AA] uppercase tracking-widest px-3 py-2 rounded-lg transition-all duration-200 hover:text-[#1C1828] hover:bg-[#F0EBF8]"
-        :class="{ 'text-[#1C1828] bg-[#F0EBF8]': route.path === link.path }">
+        class="text-sm font-medium text-slate-500 px-4 py-2 rounded-full transition-all duration-300 hover:text-slate-800 hover:bg-slate-100"
+        :class="{ 'text-slate-800 bg-slate-100': route.path === link.path }">
         {{ link.name }}
-      </NuxtLink>
-      <NuxtLink to="/contact"
-        class="ml-2 bg-[#1C1828] text-white text-xs font-medium px-5 py-2.5 rounded-lg uppercase tracking-wider transition-all duration-200 hover:bg-[#7C5CBF] hover:-translate-y-px">
-        Me contacter
       </NuxtLink>
     </div>
 
+    <!-- Mobile Button -->
+    <button @click="toggleMenu" class="md:hidden p-2 text-slate-600 focus:outline-none">
+      <svg v-if="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+      <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div v-if="isMenuOpen" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-sm pt-24 px-6 md:hidden">
+    <div class="flex flex-col gap-4">
+      <NuxtLink v-for="link in links" :key="link.path" :to="link.path" @click="isMenuOpen = false"
+        class="text-lg font-medium text-slate-600 px-6 py-4 rounded-2xl transition-all duration-300 hover:text-slate-900 hover:bg-slate-100"
+        :class="{ 'text-slate-900 bg-slate-100': route.path === link.path }">
+        {{ link.name }}
+      </NuxtLink>
+    </div>
+  </div>
 </template>
