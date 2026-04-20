@@ -12,6 +12,7 @@
     <div class="hidden lg:flex items-center gap-12 font-sans text-xs tracking-[0.2em] uppercase text-gray-400 font-bold">
       <NuxtLink to="/" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Home</NuxtLink>
       <NuxtLink to="/about" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">About</NuxtLink>
+      <NuxtLink to="/expertise" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Expertise</NuxtLink>
       <NuxtLink to="/projects" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Projects</NuxtLink>
       <NuxtLink to="/contact" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Contact</NuxtLink>
     </div>
