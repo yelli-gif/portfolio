@@ -104,10 +104,10 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
-import { markRaw } from 'vue'
+import { markRaw, computed } from 'vue'
 
 const route = useRoute()
-const slug = route.params.slug
+
 
 // Icons for features
 const IconBourse = markRaw({
@@ -165,7 +165,7 @@ const projects = {
   }
 }
 
-const project = projects[slug]
+const project = computed(() => projects[route.params.slug])
 
 definePageMeta({
   layout: 'default'
