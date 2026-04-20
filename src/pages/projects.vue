@@ -24,10 +24,12 @@
         
         <!-- Project 1: Y'Boutique -->
         <div class="group">
-          <div class="rounded-[40px] overflow-hidden aspect-[4/3] mb-8 shadow-sm transition-all duration-500 hover:shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" alt="Y'Boutique" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
-          </div>
-          <div class="flex justify-between items-end p-2">
+          <NuxtLink to="/projects/y-boutique">
+            <div class="rounded-[40px] overflow-hidden aspect-[4/3] mb-8 shadow-sm transition-all duration-500 hover:shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop" alt="Y'Boutique" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
+            </div>
+          </NuxtLink>
+          <div class="flex justify-between items-end p-2 slice">
             <div>
               <h2 class="text-4xl font-serif text-brand-dark mb-4">Y'Boutique</h2>
               <div class="flex gap-2">
@@ -36,7 +38,7 @@
                 <span class="px-3 py-1 bg-white rounded-lg text-[10px] font-bold text-gray-400 uppercase tracking-widest">Stripe</span>
               </div>
             </div>
-            <NuxtLink to="/contact" class="bg-brand-green text-white p-4 rounded-full transition-all hover:scale-110 shadow-lg shadow-brand-green/20">
+            <NuxtLink to="/projects/y-boutique" class="bg-brand-green text-white p-4 rounded-full transition-all hover:scale-110 shadow-lg shadow-brand-green/20">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -46,9 +48,11 @@
 
         <!-- Project 2: Medilink (Staggered Down) -->
         <div class="group md:mt-32">
-          <div class="rounded-[40px] overflow-hidden aspect-[3/4] mb-8 shadow-sm transition-all duration-500 hover:shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1932&auto=format&fit=crop" alt="Medilink" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
-          </div>
+          <NuxtLink to="/projects/medilink">
+            <div class="rounded-[40px] overflow-hidden aspect-[3/4] mb-8 shadow-sm transition-all duration-500 hover:shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1932&auto=format&fit=crop" alt="Medilink" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
+            </div>
+          </NuxtLink>
           <div class="flex justify-between items-end p-2">
             <div>
               <h2 class="text-4xl font-serif text-brand-dark mb-4">Medilink</h2>
@@ -57,9 +61,9 @@
                 <span class="px-3 py-1 bg-white rounded-lg text-[10px] font-bold text-gray-400 uppercase tracking-widest">Node.js</span>
               </div>
             </div>
-            <NuxtLink to="/contact" class="text-brand-green p-4 border border-brand-green/20 rounded-full hover:bg-brand-green hover:text-white transition-all">
+            <NuxtLink to="/projects/medilink" class="text-brand-green p-4 border border-brand-green/20 rounded-full hover:bg-brand-green hover:text-white transition-all">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </NuxtLink>
           </div>
