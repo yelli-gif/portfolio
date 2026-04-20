@@ -65,7 +65,7 @@
           <div class="lg:w-1/3">
             <div class="sticky top-12 space-y-16">
               <div>
-                <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 mb-6">Tech Stack</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 mb-6">Stack Technique</p>
                 <div class="flex flex-wrap gap-3">
                   <span v-for="tech in project.techStack" :key="tech" class="px-5 py-2 bg-white rounded-xl text-xs font-bold text-gray-400 border border-gray-50 uppercase tracking-widest">
                     {{ tech }}
