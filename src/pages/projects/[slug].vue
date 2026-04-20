@@ -41,7 +41,16 @@
               <div class="space-y-12">
                 <div v-for="(feature, i) in project.features" :key="i" class="flex gap-8">
                   <div class="w-12 h-12 rounded-xl bg-brand-green-soft flex items-center justify-center text-brand-green flex-shrink-0">
-                    <component :is="feature.icon" class="h-6 w-6" />
+                    <!-- Dynamic SVG Placeholder -->
+                    <svg v-if="feature.icon === 'stock' || feature.icon === 'cube'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                    <svg v-else-if="feature.icon === 'payment' || feature.icon === 'bourse'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
                   </div>
                   <div>
                     <h4 class="text-xl font-serif font-bold text-brand-dark mb-2">{{ feature.title }}</h4>
@@ -103,22 +112,7 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-import { markRaw, computed } from 'vue'
-
 const route = useRoute()
-
-
-// Icons for features
-const IconBourse = markRaw({
-  template: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>`
-})
-const IconCube = markRaw({
-  template: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>`
-})
-const IconUsers = markRaw({
-  template: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>`
-})
 
 const projects = {
   'y-boutique': {
@@ -130,9 +124,9 @@ const projects = {
       'Nous avons particulièrement soigné le tunnel de commande, en intégrant un système de paiement Wave simplifié et un calculateur de frais de livraison dynamique qui s\'adapte selon la localisation du client (Abidjan, Intérieur ou International).'
     ],
     features: [
-      { title: 'Gestion de Stock & Supabase', desc: 'Synchronisation instantanée de l\'inventaire et gestion des profils clients sécurisée via Supabase.', icon: IconCube },
-      { title: 'Calculateur de Livraison', desc: 'Logique métier avancée pour l\'application automatique des frais de port selon la destination.', icon: IconBourse },
-      { title: 'Checkout Optimisé', desc: 'Interface de paiement verrouillée jusqu\'à validation des infos pour garantir une transaction sans erreur.', icon: IconBourse }
+      { title: 'Gestion de Stock & Supabase', desc: 'Synchronisation instantanée de l\'inventaire et gestion des profils clients sécurisée via Supabase.', icon: 'cube' },
+      { title: 'Calculateur de Livraison', desc: 'Logique métier avancée pour l\'application automatique des frais de port selon la destination.', icon: 'bourse' },
+      { title: 'Checkout Optimisé', desc: 'Interface de paiement verrouillée jusqu\'à validation des infos pour garantir une transaction sans erreur.', icon: 'bourse' }
     ],
     techStack: ['Nuxt 3', 'Supabase', 'Tailwind CSS', 'Paiement Wave', 'Vercel'],
     deliverables: ['Interface Client', 'Système de Commande', 'Base de données Supabase', 'Logique de Livraison'],
@@ -151,9 +145,9 @@ const projects = {
       'Le projet a été piloté via Trello pour une gestion agile des fonctionnalités. L\'interface de réception, développée en React/TypeScript, offre une réactivité exemplaire pour le suivi des patients en temps réel et la validation des tickets via scan.'
     ],
     features: [
-      { title: 'Gestion de Tickets Temps Réel', desc: 'Affichage dynamique de la file d\'attente et notifications de passage.', icon: IconUsers },
-      { title: 'Interface Réceptionniste', desc: 'Tableau de bord optimisé pour l\'accueil patient et la vérification rapide des rendez-vous.', icon: IconDashboard },
-      { title: 'Organisation Agile (Trello)', desc: 'Structure de projet organisée pour une itération rapide sur les besoins cliniques.', icon: IconCube }
+      { title: 'Gestion de Tickets Temps Réel', desc: 'Affichage dynamique de la file d\'attente et notifications de passage.', icon: 'users' },
+      { title: 'Interface Réceptionniste', desc: 'Tableau de bord optimisé pour l\'accueil patient et la vérification rapide des rendez-vous.', icon: 'dashboard' },
+      { title: 'Organisation Agile (Trello)', desc: 'Structure de projet organisée pour une itération rapide sur les besoins cliniques.', icon: 'cube' }
     ],
     techStack: ['React', 'TypeScript', 'Trello', 'Tailwind CSS', 'React Native'],
     deliverables: ['Interface Réception', 'Application Patient', 'Système de Tickets', 'Dashboard Admin'],
