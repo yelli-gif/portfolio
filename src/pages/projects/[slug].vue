@@ -85,7 +85,7 @@
 
               <div class="pt-8" v-if="project.liveUrl">
                 <a :href="project.liveUrl" target="_blank" class="w-full bg-brand-green text-white py-5 rounded-2xl font-serif text-xl font-bold transition-all hover:bg-opacity-90 flex items-center justify-center gap-3 shadow-xl shadow-brand-green/20">
-                  Voir le projet
+                  Voir le projet live
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
