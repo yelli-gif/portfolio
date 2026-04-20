@@ -10,10 +10,10 @@
     </div>
 
     <div class="hidden lg:flex items-center gap-12 font-sans text-xs tracking-[0.2em] uppercase text-gray-400 font-bold">
-      <NuxtLink to="/" class="hover:text-brand-green transition-colors border-b-2 border-brand-green pb-1 text-brand-green">Home</NuxtLink>
-      <NuxtLink to="/about" class="hover:text-brand-green transition-colors pb-1">About</NuxtLink>
-      <NuxtLink to="/projects" class="hover:text-brand-green transition-colors pb-1">Projects</NuxtLink>
-      <NuxtLink to="/contact" class="hover:text-brand-green transition-colors pb-1">Contact</NuxtLink>
+      <NuxtLink to="/" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Home</NuxtLink>
+      <NuxtLink to="/about" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">About</NuxtLink>
+      <NuxtLink to="/projects" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Projects</NuxtLink>
+      <NuxtLink to="/contact" class="hover:text-brand-green transition-colors pb-1" active-class="border-b-2 border-brand-green text-brand-green">Contact</NuxtLink>
     </div>
 
     <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 border-2 border-white shadow-sm ring-1 ring-black/5">
