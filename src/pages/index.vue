@@ -57,7 +57,7 @@
     </section>
 
     <!-- APPROACH SECTION -->
-    <section class="bg-white py-32 rounded-[60px] -mt-16 relative z-10">
+    <section class="bg-white py-32 rounded-[60px] -mt-16 relative z-10 shadow-sm border-t border-gray-50">
       <div class="container mx-auto px-12">
         <div class="flex flex-col lg:flex-row gap-20 items-start">
           <div class="lg:w-1/3">
@@ -88,7 +88,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="font-serif text-2xl font-bold mb-4">Gestion de Projet</h3>
+            <h3 class="font-serif text-2xl font-bold mb-4 text-white">Gestion de Projet</h3>
             <p class="text-brand-green-soft text-sm mb-6">Méthodes Agiles, SI</p>
           </div>
 
